@@ -1,0 +1,27 @@
+---
+- name: Удалить сломанный репозиторий HashiCorp (блокирует apt update)
+  ansible.builtin.shell: rm -f /etc/apt/sources.list.d/*hashicorp*
+  args:
+    warn: false
+  ignore_errors: true
+
+- name: Установить Docker и Compose
+  ansible.builtin.apt:
+    name:
+      - docker.io
+      - docker-compose-v2
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Запустить и включить Docker
+  ansible.builtin.systemd_service:
+    name: docker
+    enabled: true
+    state: started
+
+- name: Добавить {{ deployer_user }} в группу docker
+  ansible.builtin.user:
+    name: "{{ deployer_user }}"
+    groups: docker
+    append: true
