@@ -32,7 +32,8 @@ terraform apply
 
 ## Результаты
 ### Ansible: идемпотентность
-![ansible](docs/screenshots/ansible-idempotency.png)
+![ansible](docs/screenshots/ansible-idempotency1.png)
+![ansible](docs/screenshots/ansible-idempotency2.png)
 
 ### Мониторинг: сервис не активен
 ![monitor](docs/screenshots/monitor.png)
@@ -44,7 +45,11 @@ terraform apply
 ![compose](docs/screenshots/compose.png)
 
 ### Terraform
-![terraform](docs/screenshots/terraform-state.png)
+![terraform](docs/screenshots/terraform-state0.png)
+![terraform](docs/screenshots/terraform-state1.png)
+![terraform](docs/screenshots/terraform-state2.png)
+![terraform](docs/screenshots/terraform-state3.png)
+![terraform](docs/screenshots/terraform-state4.png)
 
 ## Архитектурные решения
 - Использованы роли Ansible и только встроенные модули для обеспечения идемпотентности (без shell/command).
